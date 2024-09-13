@@ -1466,7 +1466,11 @@ if (total > 499) {$(alert).removeClass("hidden");
                  $('.data-rates').empty().prepend('&times;&nbsp;');
                  $('.ee-result, .data-amount, .result-ee-total, .data-amount-input').empty();
                 $('.breakdown-table').addClass('hidden');
-                
+              //Add zeros if visible input is blank
+                  $('.ee-input').each(function(){   
+                if ($(this).is(':visible') && !$(this).val()) {$(this).val('0');};
+   
+                });
                 
                 //Display total ee amount
                 $('.ee-output').each(function(){
@@ -1499,8 +1503,8 @@ if (total > 499) {$(alert).removeClass("hidden");
                           var eeAmt = $(this).val();
                  var totalOutputVal =    $('input[name="total-' + groupName + '"]').val();       
                          
-                         
-                  if (eeAmt > 0) {
+                //return rate if amount is greater than zero, zero but only visible         
+                  if (eeAmt >= '0') {
          var str = $(this).attr('id');
          
         var idArray = str.split("-");
