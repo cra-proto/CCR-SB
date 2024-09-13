@@ -1,0 +1,119 @@
+{
+    "ab": { 
+        "2023": 10.00,
+        "2022": 10.00,
+        "2021": 10.00,
+        "2020": 10.00,
+        "2019": 0,
+        "name_e": "Alberta",
+        "name_f": "Alberta"
+    },
+    "bc": {
+       "2023": 0,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "British Columbia",
+        "name_f": "Colombie-Britannique"
+    },  
+    "mb": {
+        "2023": 9.00,
+        "2022": 9.00,
+        "2021": 9.00,
+        "2020": 9.00,
+        "2019": 9.00,
+        "name_e": "Manitoba",
+        "name_f": "Manitoba"
+    },
+     "nb": {
+        "2023": 8.00,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "New Brunswick",
+        "name_f": "Nouveau-Brunswick"
+    },
+    "nl": {
+        "2023": 5.00,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Newfoundland and Labrador",
+        "name_f": "Terre-Neuve-et-Labrador"
+    },
+    "nt": {
+        "2023": 0,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Northwest Territories",
+        "name_f": "Territoires du Nord-Ouest"
+    },
+    "ns": {
+        "2023": 5.00,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Nova Scotia",
+        "name_f": "Nouvelle-Écosse"
+    },
+    "nu": {
+        "2023": 0,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Nunavut",
+        "name_f": "Nunavut"
+    },
+    "on": {
+       "2023": 15.00,
+        "2022": 15.00,
+        "2021": 15.00,
+        "2020": 15.00,
+        "2019": 15.00,
+        "name_e": "Ontario",
+        "name_f": "Ontario"
+    },
+    "pe": {
+         "2023": 5.00,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Prince Edward Island",
+        "name_f": "Île-du-Prince-Édouard"
+    },
+    "qc": {
+         "2023": 0,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Quebec",
+        "name_f": "Québec"
+    },
+    "sk": {
+         "2023": 6.00,
+        "2022": 6.00,
+        "2021": 6.00,
+        "2020": 6.00,
+        "2019": 6.00,
+        "name_e": "Saskatchewan",
+        "name_f": "Saskatchewan"
+    },
+    "yt": {
+       "2023": 0,
+        "2022": 0,
+        "2021": 0,
+        "2020": 0,
+        "2019": 0,
+        "name_e": "Yukon",
+        "name_f": "Yukon"
+    }
+}
