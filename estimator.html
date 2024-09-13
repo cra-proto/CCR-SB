@@ -1589,7 +1589,8 @@ if (total > 499) {$(alert).removeClass("hidden");
                          
                            event.preventDefault();
                 updateMultipliedTotals();
-                        $('#ccrbTotal').removeClass('hidden');  
+                        $('#ccrbTotal').removeClass('hidden');
+                             document.getElementById("ccrbTitle").scrollIntoView({ behavior: "smooth"});
        
    
           });
