@@ -549,7 +549,8 @@
     </div>
             </div>
 <!--Results //-->            
-      <section id="ccrsbTotal" aria-live="polite"  aria-atomic="true" aria-busy="true">
+      <section id="ccrsbTotal">
+           <div aria-live="polite"  aria-atomic="true" aria-busy="true">
     <div id="ccrsb-overview" class="panel-body hidden">
       <h3 id="resultTitle"class="h2 text-success mrgn-tp-md"><small>Results for </small><br>
         Your estimated Canada Carbon Rebate for <span class="nowrap">Small Businesses</span></h3>
@@ -560,6 +561,7 @@
         </div>
       </div>
     </div>
+           </div>
      <div id="ccrsb-breakdown" class="panel-body hidden">
         <details id="results-table-2023" class="breakdown-table hidden">
           <summary>Breakdown for 2023 fuel year</summary>
@@ -1555,7 +1557,7 @@ if (total > 499) {$(alert).removeClass("hidden");
 
                 // Display the final sum of all multiplied inputs across all groups
                 $('#final-sum').text(formatCurrency(finalSum, "CAD", currLang));
-                          $('#ccrsbTotal').attr('aria-busy', 'false');   
+                          $('#ccrsbTotal>div').attr('aria-busy', 'false');   
                    });
                 
              
