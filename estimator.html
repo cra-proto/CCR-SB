@@ -213,16 +213,18 @@
   <div class="wb-frmvld provisional wb-steps">
     <form id="ccrsb-form">
       <fieldset>
-        <legend class="wb-step-legend">Eligible years to claim</legend>
+        <legend class="wb-step-legend" id="stp-1" aria-labelledby="stp-1 stp-1-desc" tabindex="0">Eligible years to claim</legend>
         <div class="gc-font-2019 mrgn-bttm-lg">
+             <div id="stp-1-desc">
           <p>Your rebate is a single amount that includes <strong>all past years</strong> you were eligible for.</p>
           <p>The dates are based on a fuel charge year, which corresponds with the year date you filed your corporate tax return.</p>
+             </div>
           <details>
             <summary>What is a fuel charge year?</summary>
             <p>Definition goes here</p>
           </details>
           <fieldset class="subfields gc-chckbxrdio mrgn-tp-md mrgn-lft-md">
-            <legend class="required"><span class="field-name required">Year(s) you may be eligible for</span> <strong class="required">(required)</strong></legend>
+            <legend class="required"><span class="field-name required">Years you may be eligible for</span> <strong class="required">(required)</strong></legend>
             <div>
               <ul class="list-unstyled lst-spcd-2" id="yr-checkbox">
                 <li class="checkbox">
@@ -251,9 +253,11 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend class="wb-step-legend">Employee residence</legend>
+        <legend class="wb-step-legend" id="stp-2" aria-labelledby="stp-2 stp-2-desc">Employee residence</legend>
         <div class="gc-font-2019 mrgn-bttm-lg">
+             <div id="stp-2-desc">
           <p>An employee’s residence is the province or territory their T4 was issued for that <span class="nowrap">year (box 10).</span></p>
+             </div>
           <fieldset class="subfields gc-chckbxrdio mrgn-lft-md">
             <legend class="required"><span class="field-name required">Provinces or territories you have employees in during these periods</span> <strong class="required">(required)</strong></legend>
          
@@ -316,10 +320,11 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend class="wb-step-legend">Number of employees</legend>
+        <legend class="wb-step-legend" id="stp-3" aria-labelledby="stp-3 stp-3-desc">Number of employees</legend>
           <div class="gc-font-2019 mrgn-bttm-lg">
-              <p>If you issued more than one T4 for an employee in different provinces in the same year, include them only once, in province which their remuneration (box 14) was highest.</p>      
-              
+               <div id="stp-3-desc">
+              <p>If you issued more than one T4 for an employee in different provinces or territories in the same year, include them only once, in the province or territory which their remuneration (box 14) was highest.</p>      
+               </div>
         <table class="table table-condensed gc-table provisional" id="ee-table">
     <caption>
     Number of employees in a province or territory
@@ -507,7 +512,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <th scope="row">Totals</th>
+        <th scope="row">Total employees<span class="wb-inv"> for each year</span></th>
         <td class="ee-col-2023 hidden" data-label="2023"><label for="ee-total-2023" class="hidden">2023<span class="wb-inv"> sum</span></label>
           <input type="text" class="ee-output form-control center-block" min="0" id="ee-total-2023" name="total-input-2023" size="6" maxlength="6" readonly/></td>
         <td class="ee-col-2022 hidden" data-label="2022"><label for="ee-total-2022" class="hidden">2022<span class="wb-inv"> sum</span></label>
@@ -521,9 +526,10 @@
       </tr>
     </tfoot>
   </table>
+<div aria-live="polite" aria-atomic="true">           
   <div class="alert alert-danger hidden" id="alert-capacity">
            <h3>Amount of employees exceed eligibility</h3>  
-            <p>You have calculated the follow periods as having 500 employees or more across Canada:</p>
+            <p>You have calculated the following periods as having 500 employees or more across Canada:</p>
       <ul><li id="alert-input-2023" class="hidden">2023 fuel year</li>
           <li id="alert-input-2022" class="hidden">2022 fuel year</li>
           <li id="alert-input-2021" class="hidden">2021 fuel year</li>
@@ -532,7 +538,7 @@
       </ul>
       <p>Therefore you are not eligible for the rebate for this period.</p>
           </div>                  
-              
+</div> 
     
           </div>
         </fieldset>
@@ -543,9 +549,9 @@
     </div>
             </div>
 <!--Results //-->            
-      <section id="ccrbTotal" class="hidden brdr-tp">
-    <div class="panel-body">
-      <h3 id="ccrbTitle" aria-live="polite" class="h2 text-success mrgn-tp-md"><small>Results for </small><br>
+      <section id="ccrsbTotal" aria-live="polite"  aria-atomic="true" aria-busy="true">
+    <div id="ccrsb-overview" class="panel-body hidden">
+      <h3 id="resultTitle"class="h2 text-success mrgn-tp-md"><small>Results for </small><br>
         Your estimated Canada Carbon Rebate for <span class="nowrap">Small Businesses</span></h3>
       <div class="d-sm-flex">
         <div class="mrgn-rght-sm"><strong id="final-sum" class="nowrap">$--</strong></div>
@@ -553,7 +559,8 @@
           <p>is your estimated payment for the these fuel years.</p>
         </div>
       </div>
-     
+    </div>
+     <div id="ccrsb-breakdown" class="panel-body hidden">
         <details id="results-table-2023" class="breakdown-table hidden">
           <summary>Breakdown for 2023 fuel year</summary>
           <div class="table-responsive">
@@ -1392,7 +1399,7 @@ currency: currencyCode
 }  
             
  $('input[name]').change(function() {
-     $('#ccrsbTotal').addClass('hidden'); 
+     $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
      var yearLocVal = $(this).val(),
          yearCol = '.ee-col-' + yearLocVal,
          locRow =  '.ee-row-' + yearLocVal,
@@ -1548,6 +1555,7 @@ if (total > 499) {$(alert).removeClass("hidden");
 
                 // Display the final sum of all multiplied inputs across all groups
                 $('#final-sum').text(formatCurrency(finalSum, "CAD", currLang));
+                          $('#ccrsbTotal').attr('aria-busy', 'false');   
                    });
                 
              
@@ -1588,7 +1596,7 @@ if (total > 499) {$(alert).removeClass("hidden");
                 
                 updateInputTotals();
                  checkTotalsAndAlert();
-             $('#ccrbTotal').addClass('hidden'); 
+             $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
             });
         
             
@@ -1597,13 +1605,13 @@ if (total > 499) {$(alert).removeClass("hidden");
                          
                            event.preventDefault();
                 updateMultipliedTotals();
-                        $('#ccrbTotal').removeClass('hidden');
-                             document.getElementById("ccrbTitle").scrollIntoView({ behavior: "smooth"});
+                        $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden');
+                             document.getElementById("resultTitle").scrollIntoView({ behavior: "smooth"});
        
    
           });
             $('.buttons').on('click', function() {
-               $('#ccrbTotal').addClass('hidden');  
+               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden');  
                 
             })
             
