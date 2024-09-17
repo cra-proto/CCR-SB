@@ -1376,42 +1376,21 @@ currency: currencyCode
 
 }  
             
- $('input[name=year]').change(function() {
-    $('#ccrbTotal').addClass('hidden'); 
-  var yearVal = $(this).val();
-    
-    
-    if ($(this).prop('checked')) {
-
- 
-    $('.ee-col-' + yearVal).removeClass('hidden');    
-    
-    }
-    else {  $('.ee-col-' + yearVal).addClass('hidden'); 
-        $('.ee-col-' + yearVal + ' input[type=text]').val('');
+ $('input[name]').change(function() {
+     $('#ccrsbTotal').addClass('hidden'); 
+     var yearLocVal = $(this).val(),
+         yearCol = '.ee-col-' + yearLocVal,
+         locRow =  '.ee-row-' + yearLocVal,
+         totalRow =  '.total-row-' + yearLocVal;    
+     if ($(this).prop('checked')) {
+         $(yearCol + ',' + locRow + ',' + totalRow).removeClass('hidden');
+     }
+     else {
+         $(yearCol + ',' + locRow + ',' + totalRow).addClass('hidden');
+         $(yearCol + ',' + locRow).find('input[type=text]').val('');
+          updateInputTotals();
          };
-   
-
-   
-          });            
-  $('input[name=location]').change(function() {
-     $('#ccrbTotal').addClass('hidden'); 
-  var locationVal = $(this).val();
-    
-    
-    if ($(this).prop('checked')) {
-
- 
-    $('.ee-row-' + locationVal + ',.total-row-' + locationVal).removeClass('hidden');    
-    
-    }
-    else {  $('.ee-row-' + locationVal + ',.total-row-' + locationVal).addClass('hidden'); 
-        $('.ee-row-' + locationVal + ' input[type=text]').val('');
-         };
-   
-
-   
-          });              
+ });                
          
             
             
@@ -1501,7 +1480,7 @@ if (total > 499) {$(alert).removeClass("hidden");
                     // Multiply and sum all inputs with the same name
                      $('input[name="' + groupName + '"]').each(function() {
                           var eeAmt = $(this).val();
-                 var totalOutputVal =    $('input[name="total-' + groupName + '"]').val();       
+                 var totalOutputVal =    $('input[name="total-' + groupName + '"]:visible').val();       
                          
                 //return rate if amount is greater than zero, zero but only visible         
                   if (eeAmt >= '0') {
