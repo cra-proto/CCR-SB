@@ -1558,9 +1558,9 @@ if (total > 499) {$(alert).removeClass("hidden");
 
                 // Display the final sum of all multiplied inputs across all groups
                 $('#final-sum').text(formatCurrency(finalSum, "CAD", currLang));
-                       //   $('#ccrsbTotal>div').attr('aria-busy', 'false');   
+           
                    });
-                
+                  $('#ccrsb-overview').parent().attr('aria-busy', 'false');
              
                 
             
@@ -1610,7 +1610,7 @@ if (total > 499) {$(alert).removeClass("hidden");
                            event.preventDefault();
                 updateMultipliedTotals();
                         $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden');
-                            $('#ccrsb-overview').parent().attr('aria-busy', 'false'); 
+                        
                              document.getElementById("resultTitle").scrollIntoView({ behavior: "smooth"});
        
    
