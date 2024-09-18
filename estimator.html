@@ -1401,7 +1401,8 @@ currency: currencyCode
 }  
             
  $('input[name]').change(function() {
-     $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden').parent().attr('aria-busy', 'true'); 
+     $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
+      $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
      var yearLocVal = $(this).val(),
          yearCol = '.ee-col-' + yearLocVal,
          locRow =  '.ee-row-' + yearLocVal,
@@ -1598,7 +1599,8 @@ if (total > 499) {$(alert).removeClass("hidden");
                 
                 updateInputTotals();
                  checkTotalsAndAlert();
-             $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden').parent().attr('aria-busy', 'true'); 
+             $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden');
+                 $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
             });
         
             
@@ -1607,13 +1609,15 @@ if (total > 499) {$(alert).removeClass("hidden");
                          
                            event.preventDefault();
                 updateMultipliedTotals();
-                        $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden').parent().attr('aria-busy', 'false');
+                        $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden');
+                            $('#ccrsb-overview').parent().attr('aria-busy', 'false'); 
                              document.getElementById("resultTitle").scrollIntoView({ behavior: "smooth"});
        
    
           });
             $('.buttons').on('click', function() {
-               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden').parent().attr('aria-busy', 'true');  
+               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
+                 $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
                 
             })
             
