@@ -195,15 +195,54 @@
   </nav>
   <h1 property="name" id="wb-cont" class="gc-thickline">Who is eligible</h1>
 
-
+     <p>Only <a href="#">Canadian-Controlled Private Corporations (CCPCs)</a> are eligible for this rebate.</p>
+<p>Your rebate amount is determined for each fuel charge year. A fuel charge year runs from April 1 to March 31.</p>
+<p>To be eligible for the retroactive payment that covers the 2019-2020 to 2023-2024 fuel charge years, you must have met <strong>both of the following criteria for the tax year ending in 2023</strong>:</p>
+     <ul><li>You were a CCPC at all times</li>
+<li>You filed your tax return no later than July 15, 2024</li>
+     </ul>
+<p>To receive a rebate amount for a particular fuel charge year, you must also have met both of the following criteria:</p>
+     <ul>
+          <li>You employed one or more persons in a designated province in the calendar year in which the fuel charge year begins</li>
+          <li>You had 499 or fewer employees throughout Canada in that calendar year</li>
+     </ul>
+<h3>Designated provinces</h3>
+     <p>These provinces were designated for at least one of the fuel charge years included in the retroactive rebate payment (fuel charge years beginning in 2019 to 2023):</p>
+     <dl class="dl-horizontal">>
+          <dd>Alberta</dd><dt>2020 to 2023</dt>
+          <dd>Saskatchewan</dd><dt>2019 to 2023</dt>
+          <dd>Manitoba</dd><dt>2019 to 2023</dt>
+          <dd>Ontario</dd><dt>2020 to 2023</dt>
+          <dd>New Brunswick</a></dd><dt>2023</dt>
+          <dd>Nova Scotia</dd><dt>2023</dt>
+          <dd>Prince Edward Island</dd><dt>2023</dt>
+          <dd>Newfoundland and Labrador</dd><dt>2023</dt>
+     </dl>
+     <p>British Columbia, Yukon, Northwest Territories, and Nunavut are <strong>not</strong> designated for 2019 to 2023.</p>
+     <p>If you are an eligible <strong>CCPC in a non-designated province or territory, you may qualify</strong> for the rebate as long as you had one or more employees in a designated province in the calendar year in which the fuel charge year began.</p>
+     <details><summary>Why New Brunswick is not designated for 2019</summary>
+     <p>Federal fuel charge proceeds collected in New Brunswick in respect of the 2019-2020 fuel charge year have already been returned to the province by way of other federal programs. Therefore, New Brunswick will not be a designated province for the purposes of this rebate for the 2019 calendar year, which corresponds to that specific fuel charge year.</p>
+     </details>
      
-    <h2>Estimate your payment</h2>
-    <p></p>
-    <details class="mrgn-tp-sm mrgn-bttm-md">
-      <summary></summary>
-      <p></p>
-    </details>
+<p>To understand <strong>which employees will be considered</strong> in your calculation, refer to: <a href="estimator.html#employees">[Employee details heading]</a></p>
+<p>To see the rates for each province, refer to: <a href="estimator.html#provinces">Designated provinces and amounts per employee by year</a></p>
+     
+   <details class="mrgn-tp-sm mrgn-bttm-md">
+      <summary>Example: being eligible for some years of the retroactive payment</summary>
+<p>text to follow</p>
+   </details>
 
+<h3>Eligibility for different business structures and types</h3>
+<p>If a parent corporation has more than 500 employees across Canada but has subsidiaries with less than 500 employees, the subsidiary corporation may be eligible for the rebate if:</p>
+     <ul>
+          <li>They meet the eligibility requirements</li>
+          <li>They have their own unique RC account</li>
+     </ul>
+<details class="mrgn-tp-sm mrgn-bttm-md">
+      <summary>Cooperatives and credit unions</summary>
+     <p>Cooperatives and credit unions are not eligible for this rebate because, among other things, a corporation must be a private corporation in order to be a CCPC. While a cooperative corporation or credit union might otherwise be a private corporation, the Income Tax Act deems cooperative corporations and credit unions not to be private corporations except for certain listed purposes, and this rebate is not one of those purposes.
+</p>
+</details>
 
     
     <div class="row">
@@ -230,7 +269,7 @@
         <dl id="wb-dtmd">
           <dt>Date modified:</dt>
           <dd>
-            <time property="dateModified">2024-04-11</time>
+            <time property="dateModified">2024-09-18</time>
           </dd>
         </dl>
       </div>
@@ -313,261 +352,6 @@
 <script src="https://canada.ca/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script> 
 <script src="https://canada.ca/etc/designs/canada/wet-boew/js/theme.min.js"></script> 
 <script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2025-04-nahanni.js"></script> 
-<script>
-        $(document).ready(function() {
-            
-  
-            //Function to restrict anything but whole numbers for inputs
-             $('.ee-input').on("keypress", function() {
-         return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57
-    });
-     //universal variables
-      switch (wb.lang){
-        case "en": 
-             var currLang = "en-CA", noValue = "$0";
-            break;
-        case "fr":
-         var currLang = "fr-CA", noValue = "0&nbsp;$";
-    }     
-         
-            
-//Currency function
-    function formatCurrency (value, currencyCode, locale) {
-return Intl.NumberFormat(locale, {
-style: "currency",
-currency: currencyCode
-}).format(value);
-
-}  
-            
- $('input[name]').change(function() {
-     $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
-      $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
-     var yearLocVal = $(this).val(),
-         yearCol = '.ee-col-' + yearLocVal,
-         locRow =  '.ee-row-' + yearLocVal,
-         totalRow =  '.total-row-' + yearLocVal;    
-     if ($(this).prop('checked')) {
-         $(yearCol + ',' + locRow + ',' + totalRow).removeClass('hidden');
-     }
-     else {
-         $(yearCol + ',' + locRow + ',' + totalRow).addClass('hidden');
-         $(yearCol + ',' + locRow).find('input[type=text]').val('');
-          updateInputTotals();
-         };
- });                
-         
-            
-            
-                      // Function to update the total of inputs for each group on keyup
-            function updateInputTotals() {
-                
-                
-                // Loop through each unique name attribute (group)
-                var groupNames = [...new Set($('.ee-input').map(function() {
-                    return $(this).attr('name');
-                }).get())];
-
-                groupNames.forEach(function(groupName) {
-                    var total = 0; // Total of original input values for this group
-
-                    // Sum all inputs with the same name
-                    $('input[name="' + groupName + '"]').each(function() {
-                        var value = parseFloat($(this).val()) || 0;
-                        total += value;
-                    });
-
-                    // Display the total of original input values for this group
-                    $('input[name="total-' + groupName + '"]').val(total);
-     
-                    
-     //Provide visual and text alert if total amount is over 499  
-    var alert = $('#alert-' + groupName);
-      var alertArray = groupName.split("-");
-    var alertArrayYr = alertArray[1];                
-                    
-if (total > 499) {$(alert).removeClass("hidden");
-     $('.ee-col-' + alertArrayYr).addClass('danger');             
-                  
-                 }
-  else {$(alert).addClass("hidden");
-          $('.ee-col-' + alertArrayYr).removeClass('danger');   
-       };                    
-                    
-                });
-
-                
-                
-            }
-
-         
-               
-     
-            
-              // Function to update multiplied inputs and final sum on click
-            function updateMultipliedTotals() {
-                //Reset somethings before we start
-                 $('.data-rates').empty().prepend('&times;&nbsp;');
-                 $('.ee-result, .data-amount, .result-ee-total, .data-amount-input').empty();
-                $('.breakdown-table').addClass('hidden');
-              //Add zeros if visible input is blank
-                  $('.ee-input').each(function(){   
-                if ($(this).is(':visible') && !$(this).val()) {$(this).val('0');};
-   
-                });
-                
-                //Display total ee amount
-                $('.ee-output').each(function(){
-                    var eeTotal = $(this).attr('id');
-                    $('#result-' + eeTotal).text($(this).val());
-                    
-                    
-                });
-                
-                
-                   $.getJSON( "data/bsn-rates.json", function( data ) { 
-                var finalSum = 0; // To store the final sum of all multiplied inputs across all groups
-
-                       
-                       
-                // Loop through each unique name attribute (group)
-                var groupNames = [...new Set($('.ee-input').map(function() {
-                    return $(this).attr('name');
-                }).get())];
-
-                groupNames.forEach(function(groupName) {
-                   
-                    
-                    
-                    
-                    var multipliedTotal = 0; // Total of multiplied input values for this group
-
-                    // Multiply and sum all inputs with the same name
-                     $('input[name="' + groupName + '"]').each(function() {
-                          var eeAmt = $(this).val();
-                 var totalOutputVal =    $('input[name="total-' + groupName + '"]:visible').val();       
-                         
-                //return rate if amount is greater than zero, zero but only visible         
-                  if (eeAmt >= '0') {
-         var str = $(this).attr('id');
-         
-        var idArray = str.split("-");
-         console.log(idArray);
-         }
-     else {return 0};
-     var provJson = idArray[1];
-     var yrJson = idArray[2];
-     var comboJson = provJson + "-" + yrJson;
-                        
-     var provRate = data[provJson][yrJson]; 
-           //Display employee amounts
-      $('#ee-result-' + comboJson ).text(eeAmt);              
-           
-        //conditions if total is above 499               
-                         
-           //Display rate if employees under 500
-                     
-        if (totalOutputVal > 499) {
-            $('#results-table-' + yrJson).addClass('hidden');
-            $('#results-error-' + yrJson).removeClass('hidden');
-            
-             $('#rate-' + comboJson ).append(noValue); provRate = 0;
-        }                 
-        else{
-            $('#results-table-' + yrJson).removeClass('hidden');
-            $('#results-error-' + yrJson).addClass('hidden');
-            $('#rate-' + comboJson ).append(formatCurrency(provRate, "CAD", currLang)); };            
-                        
-                        
-                        var value = parseFloat(eeAmt) || 0;
-                    
-                         
-                         
-                         var multipliedValue = value * provRate;
-                        $('#amount-' + comboJson).text(formatCurrency(multipliedValue, "CAD", currLang));
-
-                        multipliedTotal += multipliedValue;
-                    });
-
-                    // Display the total of multiplied input values for this group
-                    $('#amount-' + groupName).text(formatCurrency(multipliedTotal, "CAD", currLang));
-
-                    // Add this group's multiplied total to the final sum
-                    finalSum += multipliedTotal;
-                });
-
-                // Display the final sum of all multiplied inputs across all groups
-                $('#final-sum').text(formatCurrency(finalSum, "CAD", currLang));
-                       //   $('#ccrsbTotal>div').attr('aria-busy', 'false');   
-                   });
-                
-             
-                
-            
-                
-            };
-          
-    function checkTotalsAndAlert() {
-                var overLimit = false;
-
-                // Loop over all elements with class group-total
-                $('.ee-output').each(function() {
-                    var totalValue = parseFloat($(this).val()) || 0;
-                    if (totalValue > 499) {
-                        overLimit = true;  // Set flag to true if any total is over 499
-                    }
-                });
-
-                // Trigger alert based on the check
-                if (overLimit) {
-                 
-                    $('#alert-capacity, #results-error').removeClass('hidden');
-                } else {
-              
-                      $('#alert-capacity, #results-error').addClass('hidden');
-                }
-            }
- 
-            
-
-                
-            
-            
-            
-             // Trigger updateInputTotals on keyup to update totals dynamically
-            $('.ee-input').on('keyup', function() {
-                
-                updateInputTotals();
-                 checkTotalsAndAlert();
-             $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden');
-                 $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
-            });
-        
-            
-         
-                       $('#calculate').on('click', function() {
-                         
-                           event.preventDefault();
-                updateMultipliedTotals();
-                        $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden');
-                            $('#ccrsb-overview').parent().attr('aria-busy', 'false'); 
-                             document.getElementById("resultTitle").scrollIntoView({ behavior: "smooth"});
-       
-   
-          });
-            $('.buttons').on('click', function() {
-               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
-                 $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
-                
-            })
-            
-            
-                       updateInputTotals();     
-      
-       });
-
-     
-            
 
     
     </script>
