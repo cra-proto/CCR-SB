@@ -1401,7 +1401,7 @@ currency: currencyCode
 }  
             
  $('input[name]').change(function() {
-     $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
+     $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden').parent().attr('aria-busy', 'true'); 
      var yearLocVal = $(this).val(),
          yearCol = '.ee-col-' + yearLocVal,
          locRow =  '.ee-row-' + yearLocVal,
@@ -1557,7 +1557,7 @@ if (total > 499) {$(alert).removeClass("hidden");
 
                 // Display the final sum of all multiplied inputs across all groups
                 $('#final-sum').text(formatCurrency(finalSum, "CAD", currLang));
-                          $('#ccrsbTotal>div').attr('aria-busy', 'false');   
+                       //   $('#ccrsbTotal>div').attr('aria-busy', 'false');   
                    });
                 
              
@@ -1598,7 +1598,7 @@ if (total > 499) {$(alert).removeClass("hidden");
                 
                 updateInputTotals();
                  checkTotalsAndAlert();
-             $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
+             $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden').parent().attr('aria-busy', 'true'); 
             });
         
             
@@ -1607,13 +1607,13 @@ if (total > 499) {$(alert).removeClass("hidden");
                          
                            event.preventDefault();
                 updateMultipliedTotals();
-                        $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden');
+                        $('#ccrsb-overview, #ccrsb-breakdown').removeClass('hidden').parent().attr('aria-busy', 'false');
                              document.getElementById("resultTitle").scrollIntoView({ behavior: "smooth"});
        
    
           });
             $('.buttons').on('click', function() {
-               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden');  
+               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden').parent().attr('aria-busy', 'true');  
                 
             })
             
