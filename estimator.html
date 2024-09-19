@@ -195,8 +195,13 @@ form .buttons .btn {
     </ul>
   </nav>
   <h1 property="name" id="wb-cont" class="gc-thickline">How much you may get</h1>
+<p>As an eligible CCPC, your total rebate amount will be equal to the number of employees you had in the designated provinces between 2019 and 2023 inclusively, multiplied by a payment rate for each of those provinces and years.</p>
+
+     
     <h2>Estimate your payment</h2>
-    <p>Use this tool to estimate your amount based on your business operations between 2019 and 2024. You can also refer to the <a href="#rt">payment rate tables</a> to manually calculate your payment.</p>
+    <p>Use this tool to estimate your amount based on your business operations between 2019 and 2023. You can also refer to the payment rate tables to manually calculate your payment by referring to:</p>
+<ul><li><a href="#rate-tables">Rate tables for designated provinces</a><li><a href="#ee-counted">How employees are considered and counted</a></li></ul>
+     
     <p>You <a href="#">must be eligible</a> to receive the rebate before you can complete the estimator.</p>
     <details class="mrgn-tp-sm mrgn-bttm-md">
       <summary>Read the privacy statement for the estimator</summary>
@@ -217,11 +222,11 @@ form .buttons .btn {
         <div class="gc-font-2019 mrgn-bttm-lg">
              <div id="stp-1-desc">
           <p>Your rebate is a single amount that includes <strong>all past years</strong> you were eligible for.</p>
-          <p>The dates are based on a fuel charge year, which corresponds with the year date you filed your corporate tax return.</p>
+          <p>The years correspond to the calendar year in which a fuel charge year begins.</p>
              </div>
           <details>
             <summary>What is a fuel charge year?</summary>
-            <p>Definition goes here</p>
+            <p>The rebate is based on the federal fuel charge. A fuel charge year runs from April 1 to March 31.</p>
           </details>
           <fieldset class="subfields gc-chckbxrdio mrgn-tp-md mrgn-lft-md">
             <legend class="required"><span class="field-name required">Years you may be eligible for</span> <strong class="required">(required)</strong></legend>
@@ -253,10 +258,10 @@ form .buttons .btn {
         </div>
       </fieldset>
       <fieldset>
-        <legend class="wb-step-legend" id="stp-2" aria-labelledby="stp-2 stp-2-desc">Employee residence</legend>
+        <legend class="wb-step-legend" id="stp-2" aria-labelledby="stp-2 stp-2-desc">Province of employment</legend>
         <div class="gc-font-2019 mrgn-bttm-lg">
              <div id="stp-2-desc">
-          <p>An employee’s residence is the province or territory their T4 was issued for that <span class="nowrap">year (box 10).</span></p>
+          <p>An employee’s province or territory of employment is the one their T4 was issued for that  <span class="nowrap">year (box 10).</span></p>
              </div>
           <fieldset class="subfields gc-chckbxrdio mrgn-lft-md">
             <legend class="required"><span class="field-name required">Provinces or territories you have employees in during these periods</span> <strong class="required">(required)</strong></legend>
@@ -323,7 +328,8 @@ form .buttons .btn {
         <legend class="wb-step-legend" id="stp-3" aria-labelledby="stp-3 stp-3-desc">Number of employees</legend>
           <div class="gc-font-2019 mrgn-bttm-lg">
                <div id="stp-3-desc">
-              <p>If you issued more than one T4 for an employee in different provinces or territories in the same year, include them only once, in the province or territory which their remuneration (box 14) was highest.</p>      
+              <!--<p>If you issued more than one T4 for an employee in different provinces or territories in the same year, include them only once, in the province or territory which their remuneration (box 14) was highest.</p> //-->
+                    <p>Include each employee only once per year.</p>
                </div>
         <table class="table table-condensed gc-table provisional" id="ee-table">
     <caption>
@@ -573,11 +579,10 @@ form .buttons .btn {
                  
             <thead>
               <tr>
-                <th scope="col">Jurisdiction</th>
-                <th scope="col">Number of <br>
-                  employees</th>
+                <td></td>
+                <th scope="col" class="text-right">Number of employees</th>
                 <th scope="col">Rate</th>
-                <th scope="col">Amount</th>
+                <th scope="col" class="text-right">Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -707,12 +712,11 @@ form .buttons .btn {
             2022 fuel year
             </caption>
             <thead>
-              <tr>
-                <th scope="col">Jurisdiction</th>
-                <th scope="col">Number of <br>
-                  employees</th>
+             <tr>
+                <td class="invisible"></td>
+                <th scope="col" class="text-right">Number of employees</th>
                 <th scope="col">Rate</th>
-                <th scope="col">Amount</th>
+                <th scope="col" class="text-right">Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -843,11 +847,10 @@ form .buttons .btn {
             </caption>
             <thead>
               <tr>
-                <th scope="col">Jurisdiction</th>
-                <th scope="col">Number of <br>
-                  employees</th>
+                <td class="invisible"></td>
+                <th scope="col" class="text-right">Number of employees</th>
                 <th scope="col">Rate</th>
-                <th scope="col">Amount</th>
+                <th scope="col" class="text-right">Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -978,11 +981,10 @@ form .buttons .btn {
             </caption>
             <thead>
               <tr>
-                <th scope="col">Jurisdiction</th>
-                <th scope="col">Number of <br>
-                  employees</th>
+                <td class="invisible"></td>
+                <th scope="col" class="text-right">Number of employees</th>
                 <th scope="col">Rate</th>
-                <th scope="col">Amount</th>
+                <th scope="col" class="text-right">Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -1113,11 +1115,10 @@ form .buttons .btn {
             </caption>
             <thead>
               <tr>
-                <th scope="col">Jurisdiction</th>
-                <th scope="col">Number of <br>
-                  employees</th>
+                <td class="invisible"></td>
+                <th scope="col" class="text-right">Number of employees</th>
                 <th scope="col">Rate</th>
-                <th scope="col">Amount</th>
+                <th scope="col" class="text-right">Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -1229,28 +1230,77 @@ form .buttons .btn {
           </div>
       </div>
     </div>
-  <h3 id="rt">Rate tables for payment</h3>
-    <details>
-      <summary>[Rate table 2023]</summary>
-      <p>[Rate tables go here]</p>
-    </details>
-    <details>
-      <summary>[Rate table 2022]</summary>
-      <p>[Rate tables go here]</p>
-    </details>
-    <details>
-      <summary>[Rate table 2021]</summary>
-      <p>[Rate tables go here]</p>
-    </details>
-    <details>
-      <summary>[Rate table 2020]</summary>
-      <p>[Rate tables go here]</p>
-    </details>
-    <details>
-      <summary>[Rate table 2019]</summary>
-      <p>[Rate tables go here]</p>
-    </details>
-    
+  <h3 id="rate-tables">Rate tables for designated provinces</h3>
+    <table class="table table-bordered table-striped">
+<caption>Designated provinces</caption>
+<tbody><tr><th scope="col">Jurisdiction</th>
+  <th scope="col">2023</th>
+  <th scope="col">2022</th>
+  <th scope="col">2021</th>
+  <th scope="col">2020</th>
+  <th scope="col">2019</th>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Alberta</span></th>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>Not designated</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Saskatchewan</span></th>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Manitoba</span></th>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Ontario</span></th>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+  <td>{Rate}</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">New Brunswick</span></th>
+  <td>{Rate}</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Nova Scotia</span></th>
+  <td>{Rate}</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Prince Edward Island</span></th>
+  <td>{Rate}</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+</tr><tr><th scope="row"><span style="font-weight: normal;">Newfoundland and Labrador</span></th>
+  <td>{Rate}</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+  <td>Not designated</td>
+</tr></tbody></table>
+      <p>British Columbia, Northwest Territories, Nunavut, Quebec, and Yukon are not designated to receive the rebate from 2019 to 2023.</p> 
+
+<h3 id="ee-counted">How employees are considered and counted</h3>
+   <p>For the purposes of this rebate, an <strong>employee</strong> means a person who was both:</p>
+  <ul>
+        <li>Employed by your corporation at any time in the  calendar year</li>
+        <li>Issued a T4 statement of remuneration paid by your  company</li>
+      </ul>
+      <p>There is no distinction made between full-time, part-time, or seasonal employees.</p>
+      <p>An <strong>employee&rsquo;s province of employment</strong> is the  province or territory their T4 was issued for that&nbsp;year  (box 10).</p>
+      <p>If you issued more than one T4 for an employee in  different provinces or territories in the same year, include them only once, in  the province or territory which their remuneration (box 14) was highest.</p>
+        <p>For more information on how a province of employment is determined, refer to: <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/set-up-new-employee/determine-province-employment.html">Determine the province of employment</a>.</p>
+     
     <div class="row">
     <div class="col-md-12">
       <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
