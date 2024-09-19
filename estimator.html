@@ -74,19 +74,19 @@
       fieldset fieldset {
           min-width: 1px;
       }
-     form .buttons .btn {
-          font-size: 20px;
-          line-height: 1.4;
-          padding: 8px 14px;
-     }
-/*.buttons .btn.btn-primary, .buttons .btn.btn-success {
-     float: left;
-     margin-right: 15px;
-}*/
+form .buttons .btn {
+    font-size: 20px;
+    padding: 8px 14px;
+    line-height: 1.4;
+}
 .buttons:after, .buttons:before {
-     clear: both;
-     content: " ";
-     display: table;
+    clear: both;
+    display: table;
+    content: " ";
+}
+.form-control {
+    max-width: none;
+    width: 100px;
 }
           
     </style>
@@ -510,21 +510,21 @@
           <input type="text" inputmode="numeric" class="ee-input form-control center-block" min="0" id="ee-yt-2019" name="input-2019" size="6" maxlength="6"/></td>
       </tr>
     </tbody>
-    <tfoot>
-      <tr>
-        <th scope="row">Total employees<span class="wb-inv"> for each year</span></th>
-        <td class="ee-col-2023 hidden" data-label="2023"><label for="ee-total-2023" class="hidden">2023<span class="wb-inv"> sum</span></label>
-          <input type="text" class="ee-output form-control center-block" min="0" id="ee-total-2023" name="total-input-2023" size="6" maxlength="6" readonly/></td>
-        <td class="ee-col-2022 hidden" data-label="2022"><label for="ee-total-2022" class="hidden">2022<span class="wb-inv"> sum</span></label>
-          <input type="text" class="ee-output form-control center-block" min="0" id="ee-total-2022" name="total-input-2022" size="6" maxlength="6" readonly/></td>
-        <td class="ee-col-2021 hidden" data-label="2021"><label for="ee-total-2021" class="hidden">2021<span class="wb-inv"> sum</span></label>
-          <input type="text" class="ee-output form-control center-block" min="0" id="ee-total-2021" name="total-input-2021" size="6" maxlength="6" readonly/></td>
-        <td class="ee-col-2020 hidden" data-label="2020"><label for="ee-total-2020" class="hidden">2020<span class="wb-inv"> sum</span></label>
-          <input type="text" class="ee-output form-control center-block" min="0" id="ee-total-2020" name="total-input-2020" size="6" maxlength="6" readonly/></td>
-        <td class="ee-col-2019 hidden" data-label="2019"><label for="ee-total-2019" class="hidden">2019<span class="wb-inv"> sum</span></label>
-          <input type="text" class="ee-output form-control center-block" min="0" id="ee-total-2019" name="total-input-2019" size="6" maxlength="6" readonly/></td>
-      </tr>
-    </tfoot>
+       <tfoot>
+                    <tr>
+                      <th scope="row">Total of employees<span class="wb-inv"> for each year</span></th>
+                      <td class="ee-col-2023 hidden" data-label="2023"><label for="ee-total-2023" class="hidden">2023<span class="wb-inv"> sum</span></label>
+                        <output class="ee-output form-control center-block"  id="ee-total-2023" name="total-input-2023" readonly tabindex="0"></output></td>
+                      <td class="ee-col-2022 hidden" data-label="2022"><label for="ee-total-2022" class="hidden">2022<span class="wb-inv"> sum</span></label>
+                        <output class="ee-output form-control center-block"  id="ee-total-2022" name="total-input-2022" readonly tabindex="0"></output></td>
+                      <td class="ee-col-2021 hidden" data-label="2021"><label for="ee-total-2021" class="hidden">2021<span class="wb-inv"> sum</span></label>
+                        <output class="ee-output form-control center-block"  id="ee-total-2021" name="total-input-2021" readonly tabindex="0"></output></td>
+                      <td class="ee-col-2020 hidden" data-label="2020"><label for="ee-total-2020" class="hidden">2020<span class="wb-inv"> sum</span></label>
+                        <output class="ee-output form-control center-block" id="ee-total-2020" name="total-input-2020" readonly tabindex="0"></output></td>
+                      <td class="ee-col-2019 hidden" data-label="2019"><label for="ee-total-2019" class="hidden">2019<span class="wb-inv"> sum</span></label>
+                        <output class="ee-output form-control center-block" id="ee-total-2019" name="total-input-2019" readonly tabindex="0"></output></td>
+                    </tr>
+                  </tfoot>
   </table>
 <div aria-live="polite" aria-atomic="true">           
   <div class="alert alert-danger hidden" id="alert-capacity">
@@ -1400,7 +1400,7 @@ currency: currencyCode
 
 }  
             
- $('input[name]').change(function() {
+ $('#ccrsb-form .checkbox input[name]').change(function() {
      $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
       $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
      var yearLocVal = $(this).val(),
@@ -1438,7 +1438,7 @@ currency: currencyCode
                     });
 
                     // Display the total of original input values for this group
-                    $('input[name="total-' + groupName + '"]').val(total);
+                    $('output[name="total-' + groupName + '"]').text(total);
      
                     
      //Provide visual and text alert if total amount is over 499  
@@ -1505,7 +1505,7 @@ if (total > 499) {$(alert).removeClass("hidden");
                     // Multiply and sum all inputs with the same name
                      $('input[name="' + groupName + '"]').each(function() {
                           var eeAmt = $(this).val();
-                 var totalOutputVal =    $('input[name="total-' + groupName + '"]:visible').val();       
+                 var totalOutputVal =    $('output[name="total-' + groupName + '"]:visible').text();       
                          
                 //return rate if amount is greater than zero, zero but only visible         
                   if (eeAmt >= '0') {
@@ -1615,11 +1615,10 @@ if (total > 499) {$(alert).removeClass("hidden");
        
    
           });
-            $('.buttons').on('click', function() {
-               $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
-                 $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
-                
-            })
+         $(document).on("click", ".steps-wrapper div.buttons > :button:not(#calculate), .btn-lgnd", function () {
+    $('#ccrsb-title, #ccrsb-breakdown').addClass('hidden');
+    $('#ccrsb-title').parent().attr('aria-busy', 'true');
+});
             
             
                        updateInputTotals();     
