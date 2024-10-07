@@ -580,8 +580,8 @@ form .buttons .btn {
                  
             <thead>
               <tr>
-                <td></td>
-                <th scope="col" class="text-right">Number of employees</th>
+                <td class="col-xs-4"></td>
+                <th scope="col" class="text-right col-xs-3">Number of employees</th>
                 <th scope="col">Rate</th>
                 <th scope="col" class="text-right">Amount</th>
               </tr>
@@ -1669,26 +1669,6 @@ if (total > 499) {$(alert).removeClass("hidden");
 
     
     </script>
-      <script>
-        $(document).on("click", ".steps-wrapper div.buttons > :button", function () {
-            let $form = $(this).parents("form:first");
-            $form.find("legend.wb-steps-active").parents().prevAll().find("legend.wb-step-legend").addClass("prev-wb-step");
-            $form.find("legend.wb-step-legend.wb-steps-active").parents().nextAll().find("legend.wb-step-legend").removeClass("prev-wb-step");
-            $form.find("legend.wb-step-legend.wb-steps-active").removeClass("prev-wb-step").attr("tabindex", "0");
-            $form.find("legend.wb-step-legend:not(.wb-steps-active)").attr("tabindex", "-1");
-            //wrap with button
-            $form.find("legend.wb-step-legend.wb-steps-active").parents().prevAll().find("legend.wb-step-legend").wrapInner("<button class=\"btn-link p-0 btn-lgnd\" type=\"button\"></button>");
-            $form.find("fieldset legend.wb-step-legend.wb-steps-active").nextAll().addBack().find(".btn-lgnd").contents().unwrap();
-            $form.find(".btn-lgnd .btn-lgnd").contents().unwrap();
-        });
-        $(document).on("click", ".prev-wb-step", function () {
-            let $form = $(this).parents("form:first");
-            $form.find(".wb-steps-active, legend.wb-step-legend.prev-wb-step").removeClass("wb-steps-active prev-wb-step");
-            $form.find("legend.wb-step-legend + div, .buttons").addClass("hidden");
-//            $form.find("legend.wb-step-legend.wb-steps-active").parents().nextAll().each(function () {});
-            $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
-            $(this).parent().parent().find("legend.wb-step-legend + div.hidden, .buttons").removeClass("hidden");
-        });
-    </script>
+      
 </body>
 </html>
