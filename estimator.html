@@ -1414,7 +1414,9 @@ form .buttons .btn {
 <script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/méli-mélo/2025-04-nahanni.js"></script> 
 <script>
         $(document).ready(function() {
-            
+            $(window).on("load", function () {
+    $("#ccrsb-form").get(0).reset(); 
+            });
   
             //Function to restrict anything but whole numbers for inputs
              $('.ee-input').on("keypress", function() {
