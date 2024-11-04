@@ -1214,7 +1214,7 @@ form .buttons .btn {
           </table>
           </div>
         </details>
-  <p>If any rate is <strong>$0.00</strong>, that province or territory does not qualify for the rebate for that year.</p>
+
       <div id="results-error" class="alert alert-danger hidden">
         <h3>You cannot claim  the rebate for a certain year</h3>
           <p>You cannot claim a rebate for the:</p>
@@ -1231,6 +1231,16 @@ form .buttons .btn {
           </div>
       </div>
     </div>
+	<section id="no_amount" class="mfp-hide modal-content overlay-def">
+			<header class="modal-header">
+				<h2 class="modal-title">Does not qualify</h2>
+			</header>
+			<div class="modal-body">
+				 <p>Because this rate is <strong>$0.00</strong>, this province or territory does not qualify for the rebate for this year.</p>
+			</div>
+		</section>
+   
+     
   <h3 id="rate-tables">Rate tables for designated provinces</h3>
 <p>Each province has a set rebate amount per employee for each year they were designated.</p>
        <p>British Columbia, Northwest Territories, Nunavut, Quebec, and Yukon are not designated to receive the rebate from 2019 to 2023.</p> 
@@ -1443,7 +1453,8 @@ currency: currencyCode
             
  $('#ccrsb-form .checkbox input[name]').change(function() {
      $('#ccrsb-overview, #ccrsb-breakdown').addClass('hidden'); 
-      $('#ccrsb-overview').parent().attr('aria-busy', 'true'); 
+      $('#ccrsb-overview').parent().attr('aria-busy', 'true');
+      $('.zero-modal').remove();
      var yearLocVal = $(this).val(),
          yearCol = '.ee-col-' + yearLocVal,
          locRow =  '.ee-row-' + yearLocVal,
@@ -1511,6 +1522,7 @@ if (total > 499) {$(alert).removeClass("hidden");
                  $('.data-rates').empty().prepend('&times;&nbsp;');
                  $('.ee-result, .data-amount, .result-ee-total, .data-amount-input').empty();
                 $('.breakdown-table').addClass('hidden');
+                 $('.zero-modal').remove();
               //Add zeros if visible input is blank
                   $('.ee-input').each(function(){   
                 if ($(this).is(':visible') && !$(this).val()) {$(this).val('0');};
@@ -1577,7 +1589,13 @@ if (total > 499) {$(alert).removeClass("hidden");
         else{
             $('#results-table-' + yrJson).removeClass('hidden');
             $('#results-error-' + yrJson).addClass('hidden');
-            $('#rate-' + comboJson ).append(formatCurrency(provRate, "CAD", currLang)); };            
+            $('#rate-' + comboJson ).append(formatCurrency(provRate, "CAD", currLang)); 
+         //Pop up modal when rate is 0 to indicate why (class zero-modal is also destroyed on input change and submition)       
+            if (provRate == 0 ) {
+            $('#rate-' + comboJson ).append('<sup class="mrgn-lft-sm zero-modal"><a href="#no_amount" title="Why is this amount zero dollars" class="wb-lbx" id="lbx-' + comboJson + '"><span class="far fa-question-circle"></span></a></sup>');
+            $( ".wb-lbx" ).trigger( "wb-init.wb-lbx" );
+        };
+        };            
                         
                         
                         var value = parseFloat(eeAmt) || 0;
