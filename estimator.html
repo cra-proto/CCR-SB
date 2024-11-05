@@ -1592,7 +1592,7 @@ if (total > 499) {$(alert).removeClass("hidden");
             $('#rate-' + comboJson ).append(formatCurrency(provRate, "CAD", currLang)); 
          //Pop up modal when rate is 0 to indicate why (class zero-modal is also destroyed on input change and submition)       
             if (provRate == 0 ) {
-            $('#rate-' + comboJson ).append('<sup class="mrgn-lft-sm zero-modal"><a href="#no_rate" title="Why is this amount zero dollars" class="wb-lbx px-2" id="lbx-' + comboJson + '"><span class="far fa-question-circle fa-lg"></span></a></sup>');
+            $('#rate-' + comboJson ).append('<sup class="mrgn-lft-sm zero-modal"><a href="#no_rate" title="Why is this amount zero dollars" class="wb-lbx p-sm-3 px-2" id="lbx-' + comboJson + '"><span class="far fa-question-circle fa-lg"></span></a></sup>');
             $( ".wb-lbx" ).trigger( "wb-init.wb-lbx" );
         };
         };            
