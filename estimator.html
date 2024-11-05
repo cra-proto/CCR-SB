@@ -1318,15 +1318,14 @@ form .buttons .btn {
       </nav>
     </div>
   </div>
-   	<section id="no_amount" class="mfp-hide modal-dialog modal-content overlay-def">
+   	<section id="no_rate" class="mfp-hide modal-dialog modal-content overlay-def">
 		<header class="modal-header">
-			<h2 class="modal-title">Zero amount</h2>
+			<h2 class="modal-title">Zero rate</h2>
 		</header>
 		<div class="modal-body">
-			<p>An estimated payment of <strong>$0.00</strong> means that the province or territory is not included in the rebate that year.</p>
+			<p>A rate of <strong>$0.00</strong> means that the province or territory is not included in the rebate this year.</p>
 		</div>
 	</section> 
-
 	
     
   <section class="pagedetails">
@@ -1593,7 +1592,7 @@ if (total > 499) {$(alert).removeClass("hidden");
             $('#rate-' + comboJson ).append(formatCurrency(provRate, "CAD", currLang)); 
          //Pop up modal when rate is 0 to indicate why (class zero-modal is also destroyed on input change and submition)       
             if (provRate == 0 ) {
-            $('#rate-' + comboJson ).append('<sup class="mrgn-lft-sm zero-modal"><a href="#no_amount" title="Why is this amount zero dollars" class="wb-lbx" id="lbx-' + comboJson + '"><span class="far fa-question-circle"></span></a></sup>');
+            $('#rate-' + comboJson ).append('<sup class="mrgn-lft-sm zero-modal"><a href="#no_rate" title="Why is this amount zero dollars" class="wb-lbx" id="lbx-' + comboJson + '"><span class="far fa-question-circle"></span></a></sup>');
             $( ".wb-lbx" ).trigger( "wb-init.wb-lbx" );
         };
         };            
